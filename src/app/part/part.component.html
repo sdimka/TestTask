@@ -1,0 +1,79 @@
+<h1>Welcome to Parts</h1>
+
+
+<div class="container">
+    <div class="row">
+      <nav class="navbar">
+        <label> Поиск по имени:  
+            <input class="form-control" type="text" name="search" [(ngModel)]="filter">    
+        </label>
+        <label> Показывать:
+          <label class="radio-inline">
+            <input type="radio" name="optradio" [(ngModel)]="filterByType" value="All"
+            >Все
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio" [(ngModel)]="filterByType" value="isMan">Только обязательные
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="optradio" [(ngModel)]="filterByType" value="noMan">Только опциональные
+          </label>
+        </label> 
+      </nav>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th (click)="sort('name')">Наименование</th>
+            <th>Необходимость</th>
+            <th>Количество</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let part of filteredParts | orderBy: key : reverse | filter:filter 
+          | paginate: { itemsPerPage: 10, currentPage: p }; let i = index"
+          (click) = "onSelect(part, i)" [class.active]="i == selectedRow">
+            <!-- <td>{{i}}</td> -->
+            <td>{{part.id}}</td>
+            <td>{{part.name}}</td>
+            <td>{{part.mandatory}}</td>
+            <td>{{part.currentQuantity}}</td>
+            <td><button (click) = "deletePart(part.id)">Удалить</button></td>
+          </tr>
+        </tbody>
+        
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>
+
+
+<div *ngIf = "selectedPart">
+<h2>Редактировать компонент: {{selectedPart.name | uppercase}}</h2>
+<div><span>ID: </span>{{selectedPart.id}} </div>
+<div>
+  <label>Наименование:
+    <input [(ngModel)]="selectedPart.name" placeholder="name"><br/>
+  </label>
+  <label>Обязательный компонент:
+    <input type="checkbox" [(ngModel)] = "selectedPart.mandatory" name= "mandatory"/><br/>
+  </label>
+  <label>Количество:
+      <input [(ngModel)]="selectedPart.currentQuantity" placeholder="name"><br/>
+    </label>
+    <button (click) = "updatePart()">Сохранить</button>
+</div>
+</div>
+
+<div>
+  <form>
+      <h2>Добавить новый компонент</h2>
+    Наименование: <input type="text" [(ngModel)] = "partToAdd.name" name= "name"/><br/>
+    Обязательный компонент: <input type="checkbox" [(ngModel)] = "partToAdd.mandatory" name= "mandatory"/><br/>
+    Количество : <input type="text" [(ngModel)] = "partToAdd.currentQuantity" name= "quantity"/><br/>
+    <button (click) = "addPart()"> Сохранить</button>
+  </form>
+</div>
+
+<div><button (click) = "testPrt()"> Тест!</button></div>
+
