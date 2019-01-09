@@ -14,10 +14,13 @@ speed-measure-plugin.json
 
 # IDEs and editors
 /.idea
+/backend/.idea
+/backend/target
 .project
 .classpath
 .c9/
 *.launch
+*.war
 .settings/
 *.sublime-workspace
 
