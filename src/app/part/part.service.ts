@@ -10,7 +10,7 @@ import { map, catchError } from 'rxjs/operators';
 export class PartService{
 
     constructor(private _httpService: HttpClient){}
-    private getUrl = 'http://localhost:8080/springTest_war/api/part/';
+    private getUrl = 'http://localhost:8080/api/part/';
 
     getAllParts(): Observable<Part[]>{
         return this._httpService.get<Array<Part>>(this.getUrl)
