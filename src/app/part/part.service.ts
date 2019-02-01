@@ -10,9 +10,6 @@ import { map, catchError } from 'rxjs/operators';
 export class PartService{
 
     constructor(private _httpService: HttpClient){}
-<<<<<<< HEAD
-    private getUrl = 'http://192.168.150.128:8080/springTest_war/api/part/';
-=======
     private getUrl = 'http://localhost:8080/api/part/';
 >>>>>>> ee75eba9784bc9467e942f5b5e5914c1f93dbe7c
 
