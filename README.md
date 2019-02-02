@@ -1,27 +1,24 @@
-# PartsPrj
+# Тестовое задание.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.3.
+Бэкэнд на Spring MVC + Tomcat + Hibernate
+Фронтэнд на Angular
 
-## Development server
+К сожалению, не все еще успел доделать (особенно внешний вид :) ) не совсем понятны сроки, до какой даты, можно отправлять задание, боюсь опоздать. Буду "пушить" по мере дальнейшей доработки.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Для запуска backend'а
 
-## Code scaffolding
+Скрипт для создания демо-базы в файле /backend/CreateDemoTable.sql
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Настройки подключения к БД в файле /backend/src/main/resources/db.properties
 
-## Build
+Перейти в папку /backend, выполнить mvn tomcat7:run-war
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Для запуска frontend'а
 
-## Running unit tests
+В основной папке проекта выполнить: ng serve --open
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Почему-то через https://stackblitz.com не запускается, еще разбираюсь почему. Ругется:
+Error in 7.1.4/bundles/compiler.umd.js (2497:21)
+Can't resolve all parameters for ApplicationModule: (?).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

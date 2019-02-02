@@ -14,7 +14,7 @@ export class PartComponent implements OnInit{
     parts: Part[];
     filteredParts: Part[];
     private _filterByType: string;
-    filter: string;
+    //filter: string;
 
     partToAdd = new Part;
 
