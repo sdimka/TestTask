@@ -3,7 +3,7 @@ import {Part} from './part';
 import {PartService} from './part.service';
 import { PARTS } from '../mock-parts'
 import { from } from 'rxjs';
-import { YandexKassaHelper } from '../yandexKassa/yKassa'
+import { YandexKassaHelper, YandexKassaHelperConfig } from '../yandexKassa/yKassa'
 
 @Component({
     selector: 'app-part',
@@ -18,22 +18,19 @@ export class PartComponent implements OnInit{
     filteredParts: Part[];
     private _filterByType: string;
     //filter: string;
-    Yam
-    yk: YandexKassaHelper;
-
-    describe("YandexKassaHelper", () => {
-        const helper = new YandexKassaHelper({
-          yandexKassaConfig: {
-            shopId: '1234',
-            password: 'trololo'
-          }
-        });
-    }
     
+    //yk = {shopId: "string", password: "strng"}
+    conf : YandexKassaHelperConfig = {shopId: "548831", password: "test_BXC19NGsNOMn38f1e1t1JBFH4yuieszpj-P0UAb9BLQ"};
+    
+    yk = new YandexKassaHelper(this.conf);
+     
+    
+       
 
     partToAdd = new Part;
 
     get filterByType(): string {
+        this.yk.createPayment;
         return this._filterByType;
         
     }
@@ -59,7 +56,7 @@ export class PartComponent implements OnInit{
     }
 
     testPrt(): void{
-        
+        this.yk.createPayment()
         //this.filteredParts = this.filterParts('All');
         //this.filteredParts.forEach(part => console.log(part));
 

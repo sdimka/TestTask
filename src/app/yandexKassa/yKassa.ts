@@ -7,10 +7,10 @@ interface YandexKassaHelperConfig {
 }
 
 
-export class YandexKassaHelper {
+class YandexKassaHelper {
     private config: YandexKassaHelperConfig;
 
-    constructor({yandexKassaConfig}: { yandexKassaConfig: YandexKassaHelperConfig }) {
+    constructor(yandexKassaConfig:  YandexKassaHelperConfig ) {
         this.config = yandexKassaConfig;
     }
 
@@ -133,4 +133,4 @@ export class YandexKassaHelper {
     }
 }
 
-export default YandexKassaHelper;
+export {YandexKassaHelper, YandexKassaHelperConfig};
